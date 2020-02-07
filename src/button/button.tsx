@@ -26,9 +26,13 @@ const Button = ({
 }: Props) => (
   <ThemeProvider theme={defaultTheme}>
     <ButtonWrapper primary={primary} basic={basic} onClick={onClick}>
-      {icon && placement === 'left' && <Icon name={icon} size="small" />}
+      {icon && placement === 'left' && (
+        <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
+      )}
       <span>{children}</span>{' '}
-      {icon && placement === 'right' && <Icon name={icon} size="small" />}
+      {icon && placement === 'right' && (
+        <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
+      )}
     </ButtonWrapper>
   </ThemeProvider>
 );

@@ -15,7 +15,7 @@ import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from '../theme';
 import { FrubanaIcons, FrubanaUIKitSizes } from '..';
 
-type colors = 'green' | 'default';
+type colors = 'green' | 'default' | 'white';
 
 const sizes: Record<FrubanaUIKitSizes, number> = {
   small: 15,

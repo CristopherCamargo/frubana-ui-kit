@@ -23,7 +23,9 @@ const types = () => (
 
 const icon = () => (
   <>
-    <Button icon="arrow-right">Boton</Button>
+    <Button icon="arrow-right" primary>
+      Boton
+    </Button>
     <br />
     <br />
     <Button icon="arrow-left" placement="left">
