@@ -1,8 +1,17 @@
-import styled, { DefaultTheme, withTheme } from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 const Button = styled.button`
   padding: 8px;
   border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  :focus {
+    outline: none;
+  }
+  span + svg,
+  svg + span {
+    margin-left: 4px;
+  }
 `;
 
 const color = (theme: DefaultTheme, primary?: boolean, basic?: string) => {
