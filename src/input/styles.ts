@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+const InputGroupWrapper = styled.div`
+  *:not(input) {
+    width: 45px;
+    height: 30px;
+  }
+`;
+
 const InputWrapper = styled.input`
   padding: 8px;
   border: none;
@@ -11,4 +18,4 @@ const InputWrapper = styled.input`
   }
 `;
 
-export { InputWrapper };
+export { InputWrapper, InputGroupWrapper };

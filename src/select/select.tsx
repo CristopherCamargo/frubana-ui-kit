@@ -36,7 +36,7 @@ const Select = ({
     <ThemeProvider theme={defaultTheme}>
       <SelectWrapper onClick={handleOpen} size={size}>
         <SelectLabel size={size}>
-          {options[selected].label}
+          {options[selected] ? options[selected].label : ''}
           {open ? (
             <ChevronUp color="#9b9b9b" />
           ) : (
