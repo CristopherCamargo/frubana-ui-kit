@@ -2,6 +2,7 @@ import { Button } from './button';
 import { Image } from './image';
 import { Input } from './input';
 import { Icon } from './icon';
+import { Card } from './card';
 
 type FrubanaUIKitSizes = 'large' | 'medium' | 'small';
 type FrubanaBasicTypes = 'basic' | 'very';
@@ -32,4 +33,5 @@ export {
   FrubanaBasicTypes,
   FrubanaSelectOption,
   FrubanaIcons,
+  Card,
 };

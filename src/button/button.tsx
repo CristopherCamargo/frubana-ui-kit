@@ -14,6 +14,7 @@ interface Props {
   basic?: FrubanaBasicTypes;
   icon?: FrubanaIcons;
   placement?: placements;
+  fluid?: boolean;
 }
 
 const Button = ({
@@ -22,10 +23,16 @@ const Button = ({
   basic,
   icon,
   onClick,
+  fluid,
   placement = 'right',
 }: Props) => (
   <ThemeProvider theme={defaultTheme}>
-    <ButtonWrapper primary={primary} basic={basic} onClick={onClick}>
+    <ButtonWrapper
+      primary={primary}
+      basic={basic}
+      onClick={onClick}
+      fluid={fluid}
+    >
       {icon && placement === 'left' && (
         <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
       )}

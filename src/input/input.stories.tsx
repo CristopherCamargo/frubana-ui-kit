@@ -23,7 +23,11 @@ const data: FrubanaSelectOption[] = [
 const main = () => <Input />;
 
 const withSelect = () => (
-  <Input left={<Select selected={1} options={data} size="small" />} />
+  <>
+    <Input left={<Select selected={1} options={data} />} />
+    <br />
+    <Input right={<Select selected={1} options={data} />} />
+  </>
 );
 
 export { main, withSelect };

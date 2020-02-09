@@ -10,15 +10,19 @@ const size: Record<FrubanaUIKitSizes, string> = {
 const SelectWrapper = styled.div<{ size: string }>`
   cursor: pointer;
   position: relative;
-  width: ${props => size[props.size]};
+  width: auto;
   display: inline-block;
+  background-color: #fff;
 `;
 
-const SelectLabel = styled.div<{ size: string }>`
+const SelectLabel = styled.div<{ size: string; basic?: boolean }>`
   padding: 8px;
-  box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.25);
+  height: 28px;
+  ${props => !props.basic && `box-shadow: ${props.theme.boxShadow}`};
   border-radius: ${props => props.theme.borderRadius};
   display: inline-block;
+  background-color: #fff;
+  line-height: 26px;
   svg {
     float: right;
   }
@@ -29,7 +33,7 @@ const SelectList = styled.ul<{ size: string }>`
   position: absolute;
   top: 50%;
   z-index: 99;
-  background: white;
+  background: #fff;
   border: none;
   list-style-type: none;
   padding: 0px 14px 0px 0px;
@@ -44,7 +48,8 @@ const SelectList = styled.ul<{ size: string }>`
 const Option = styled.li`
   padding: 8px;
   width: 100%;
-  background-color: white;
+  height: 28px;
+  background-color: #fff;
   :hover {
     background-color: rgba(155, 155, 155, 0.15);
   }

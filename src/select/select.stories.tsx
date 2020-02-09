@@ -22,10 +22,21 @@ const main = () => (
   <>
     <Select selected={1} options={data} size="small" />
     <br />
+    <br />
     <Select selected={1} options={data} size="medium" />
+    <br />
     <br />
     <Select selected={1} options={data} size="large" />
   </>
 );
 
-export { main };
+const type = () => (
+  <>
+    <Select selected={1} options={data} />
+    <br />
+    <br />
+    <Select selected={1} options={data} basic />
+  </>
+);
+
+export { main, type };

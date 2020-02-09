@@ -1,17 +1,47 @@
 import styled from 'styled-components';
 
-const InputGroupWrapper = styled.div`
-  *:not(input) {
-    width: 45px;
-    height: 30px;
+const divBorder = (left?: React.ReactNode, right?: React.ReactNode) => {
+  if (left) {
+    return '5px 0px 0px 5px';
+  }
+  if (right) {
+    return '0px 5px 5px 0px';
+  }
+  return '5px';
+};
+
+const border = (left?: React.ReactNode, right?: React.ReactNode) => {
+  if (left && right) {
+    return '0px';
+  }
+  if (left) {
+    return '0px 5px 5px 0px';
+  }
+  if (right) {
+    return '5px 0px 0px 5px';
+  }
+  return '5px';
+};
+
+const InputGroupWrapper = styled.div<{
+  left?: React.ReactNode;
+  right?: React.ReactNode;
+}>`
+  display: flex;
+  div {
+    width: auto;
+    border-radius: ${props => divBorder(props.left, props.right)};
+  }
+  input {
+    border-radius: ${props => border(props.left, props.right)};
   }
 `;
 
 const InputWrapper = styled.input`
   padding: 8px;
   border: none;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.25);
+  height: 28px;
+  box-shadow: ${props => props.theme.boxShadow};
   background-color: #ffffff;
   :focus {
     outline: none;

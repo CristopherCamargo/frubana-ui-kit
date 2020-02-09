@@ -10,6 +10,7 @@ interface Props {
   options: FrubanaSelectOption[];
   onSelect?: (value: string | number) => void;
   size?: FrubanaUIKitSizes;
+  basic?: boolean;
 }
 
 const Select = ({
@@ -17,6 +18,7 @@ const Select = ({
   selected = '',
   size = 'medium',
   onSelect,
+  basic,
 }: Props) => {
   const [open, setOpen] = useState(false);
 
@@ -35,7 +37,7 @@ const Select = ({
   return (
     <ThemeProvider theme={defaultTheme}>
       <SelectWrapper onClick={handleOpen} size={size}>
-        <SelectLabel size={size}>
+        <SelectLabel size={size} basic={basic}>
           {options[selected] ? options[selected].label : ''}
           {open ? (
             <ChevronUp color="#9b9b9b" />

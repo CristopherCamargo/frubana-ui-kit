@@ -28,7 +28,7 @@ const icon = () => (
     </Button>
     <br />
     <br />
-    <Button icon="arrow-left" placement="left">
+    <Button icon="arrow-left" basic="basic" placement="left">
       Boton
     </Button>
   </>
