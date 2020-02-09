@@ -5,18 +5,33 @@ export default {
   title: 'Button component',
 };
 
-const primary = () => <Button primary>Boton</Button>;
-
-const basic = () => (
-  <Button primary basic="basic">
-    Boton
-  </Button>
+const types = () => (
+  <>
+    <Button primary>Boton</Button>
+    <br />
+    <br />
+    <Button primary basic="basic">
+      Boton
+    </Button>
+    <br />
+    <br />
+    <Button primary basic="very">
+      Boton
+    </Button>
+  </>
 );
 
-const veryBasic = () => (
-  <Button primary basic="very">
-    Boton
-  </Button>
+const icon = () => (
+  <>
+    <Button icon="arrow-right" primary>
+      Boton
+    </Button>
+    <br />
+    <br />
+    <Button icon="arrow-left" basic="basic" placement="left">
+      Boton
+    </Button>
+  </>
 );
 
-export { primary, basic, veryBasic };
+export { types, icon };

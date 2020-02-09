@@ -1,8 +1,27 @@
-import styled, { DefaultTheme, withTheme } from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
 
 const Button = styled.button`
   padding: 8px;
+  border: none;
   border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  :focus {
+    outline: none;
+  }
+  :hover {
+    opacity: 0.7;
+  }
+
+  -webkit-appearance: none;
+  span + svg,
+  svg + span {
+    margin-left: 4px;
+  }
 `;
 
 const color = (theme: DefaultTheme, primary?: boolean, basic?: string) => {
@@ -27,7 +46,19 @@ const background = (theme: DefaultTheme, primary?: boolean, basic?: string) => {
   }
 };
 
-const ButtonWrapper = styled(Button)<{ primary: boolean; basic: string }>`
+const size = (fluid?: boolean) => {
+  if (fluid) {
+    return '100%';
+  }
+  return '80px';
+};
+
+const ButtonWrapper = styled(Button)<{
+  primary: boolean;
+  basic: string;
+  fluid?: boolean;
+}>`
+  width: ${props => size(props.fluid)};
   background-color: ${props =>
     background(props.theme, props.primary, props.basic)};
   color: ${props => color(props.theme, props.primary, props.basic)};
@@ -38,7 +69,7 @@ const ButtonWrapper = styled(Button)<{ primary: boolean; basic: string }>`
   ${props =>
     props.basic === 'very'
       ? `border-color: transparent;`
-      : 'box-shadow: 0 2px 6px 0 rgba(154, 167, 57, 0.19);'};
+      : `box-shadow: ${props.theme.boxShadow};`}
 `;
 
 export { ButtonWrapper };
