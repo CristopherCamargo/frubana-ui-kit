@@ -13,11 +13,12 @@ const SelectWrapper = styled.div<{ size: string }>`
   width: auto;
   display: inline-block;
   background-color: #fff;
+  font-size: 1em;
 `;
 
 const SelectLabel = styled.div<{ size: string; basic?: boolean }>`
   padding: 8px;
-  height: 28px;
+  height: 30px;
   ${props => !props.basic && `box-shadow: ${props.theme.boxShadow}`};
   border-radius: ${props => props.theme.borderRadius};
   display: inline-block;
@@ -48,7 +49,7 @@ const SelectList = styled.ul<{ size: string }>`
 const Option = styled.li`
   padding: 8px;
   width: 100%;
-  height: 28px;
+  height: 30px;
   background-color: #fff;
   :hover {
     background-color: rgba(155, 155, 155, 0.15);

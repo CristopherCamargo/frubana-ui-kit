@@ -10,6 +10,7 @@ const defaultTheme: DefaultTheme = {
     white: '#fff',
     green: '#8fb812',
     secondary: 'magenta',
+    red: '#fd5153',
   },
 };
 

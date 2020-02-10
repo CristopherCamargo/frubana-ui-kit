@@ -23,13 +23,29 @@ const border = (left?: React.ReactNode, right?: React.ReactNode) => {
   return '5px';
 };
 
+const width = (
+  left?: React.ReactNode,
+  right?: React.ReactNode,
+  fluid?: boolean
+) => {
+  if (fluid) {
+    return '100%';
+  }
+  if (left || right) {
+    return '220px';
+  }
+  return '120px';
+};
+
 const InputGroupWrapper = styled.div<{
   left?: React.ReactNode;
   right?: React.ReactNode;
+  fluid?: boolean;
 }>`
   display: flex;
-  div {
-    width: auto;
+  width: ${props => width(props.left, props.right, props.fluid)};
+  .frubana-ui-select {
+    width: max-content;
     border-radius: ${props => divBorder(props.left, props.right)};
   }
   input {
@@ -40,7 +56,9 @@ const InputGroupWrapper = styled.div<{
 const InputWrapper = styled.input`
   padding: 8px;
   border: none;
-  height: 28px;
+  height: 30px;
+  font-size: 1em;
+  width: 100%;
   box-shadow: ${props => props.theme.boxShadow};
   background-color: #ffffff;
   :focus {

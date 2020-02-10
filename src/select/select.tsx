@@ -37,7 +37,7 @@ const Select = ({
   return (
     <ThemeProvider theme={defaultTheme}>
       <SelectWrapper onClick={handleOpen} size={size}>
-        <SelectLabel size={size} basic={basic}>
+        <SelectLabel size={size} basic={basic} className="frubana-ui-select">
           {options[selected] ? options[selected].label : ''}
           {open ? (
             <ChevronUp color="#9b9b9b" />

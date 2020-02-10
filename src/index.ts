@@ -3,6 +3,8 @@ import { Image } from './image';
 import { Input } from './input';
 import { Icon } from './icon';
 import { Card } from './card';
+import { Form, FormField } from './form';
+import { Select } from './select';
 
 type FrubanaUIKitSizes = 'large' | 'medium' | 'small';
 type FrubanaBasicTypes = 'basic' | 'very';
@@ -34,4 +36,7 @@ export {
   FrubanaSelectOption,
   FrubanaIcons,
   Card,
+  Form,
+  FormField,
+  Select,
 };

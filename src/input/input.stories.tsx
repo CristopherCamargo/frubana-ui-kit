@@ -20,7 +20,13 @@ const data: FrubanaSelectOption[] = [
   },
 ];
 
-const main = () => <Input />;
+const main = () => (
+  <>
+    <Input />
+    <br />
+    <Input fluid />
+  </>
+);
 
 const withSelect = () => (
   <>
