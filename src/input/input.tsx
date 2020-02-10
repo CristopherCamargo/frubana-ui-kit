@@ -1,7 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { InputWrapper, InputGroupWrapper } from './styles';
-import { FrubanaUIKitSizes } from '..';
 import { defaultTheme } from '../theme';
 
 interface Props {

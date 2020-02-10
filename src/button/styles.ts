@@ -26,16 +26,25 @@ const Button = styled.button`
   }
 `;
 
-const color = (theme: DefaultTheme, primary?: boolean, basic?: string) => {
+const color = (
+  theme: DefaultTheme,
+  primary?: boolean,
+  basic?: string
+): string => {
   if (primary && basic) {
     return theme.colors.primary;
   }
   if (primary) {
     return 'white';
   }
+  return 'initial';
 };
 
-const background = (theme: DefaultTheme, primary?: boolean, basic?: string) => {
+const background = (
+  theme: DefaultTheme,
+  primary?: boolean,
+  basic?: string
+): string => {
   if (basic) {
     const res = {
       basic: 'white',
@@ -46,6 +55,7 @@ const background = (theme: DefaultTheme, primary?: boolean, basic?: string) => {
   if (primary) {
     return theme.colors.primary;
   }
+  return 'initial';
 };
 
 const size = (fluid?: boolean) => {
@@ -56,8 +66,8 @@ const size = (fluid?: boolean) => {
 };
 
 const ButtonWrapper = styled(Button)<{
-  primary: boolean;
-  basic: string;
+  primary?: boolean;
+  basic?: string;
   fluid?: boolean;
 }>`
   width: ${props => size(props.fluid)};

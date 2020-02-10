@@ -29,7 +29,9 @@ const Select = ({
   const handleOption = useCallback(
     value => {
       setOpen(false);
-      onSelect(value);
+      if (onSelect) {
+        onSelect(value);
+      }
     },
     [open]
   );

@@ -31,6 +31,11 @@ const icon = () => (
     <Button icon="arrow-left" basic="basic" placement="left">
       Boton
     </Button>
+    <br />
+    <br />
+    <Button icon="arrow-right" basic="very">
+      Boton
+    </Button>
   </>
 );
 
