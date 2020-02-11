@@ -19,8 +19,10 @@ const SelectWrapper = styled.div<{ size: string }>`
 const SelectLabel = styled.div<{ size: string; basic?: boolean }>`
   padding: 8px;
   height: 30px;
-  ${props => !props.basic && `box-shadow: ${props.theme.boxShadow}`};
-  border-radius: ${props => props.theme.borderRadius};
+  ${props =>
+    !props.basic &&
+    `box-shadow: ${props.theme ? props.theme.boxShadow : 'none'}`};
+  border-radius: ${props => (props.theme ? props.theme.borderRadius : 'none')};
   display: inline-block;
   background-color: #fff;
   line-height: 26px;
@@ -39,7 +41,7 @@ const SelectList = styled.ul<{ size: string }>`
   list-style-type: none;
   padding: 0px 14px 0px 0px;
   box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.25);
-  border-radius: ${props => props.theme.borderRadius};
+  border-radius: ${props => (props.theme ? props.theme.borderRadius : 'none')};
   width: 100%;
   :focus {
     outline: none;

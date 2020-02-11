@@ -1,5 +1,7 @@
 import React from 'react';
 import Select from './select';
+import { GreenTheme } from '../themes';
+import { ThemeProvider } from 'styled-components';
 
 export default {
   title: 'Select component',
@@ -19,7 +21,7 @@ const data = [
 ];
 
 const main = () => (
-  <>
+  <ThemeProvider theme={GreenTheme}>
     <Select selected={1} options={data} size="small" />
     <br />
     <br />
@@ -27,16 +29,16 @@ const main = () => (
     <br />
     <br />
     <Select selected={1} options={data} size="large" />
-  </>
+  </ThemeProvider>
 );
 
 const type = () => (
-  <>
+  <ThemeProvider theme={GreenTheme}>
     <Select selected={1} options={data} />
     <br />
     <br />
     <Select selected={1} options={data} basic />
-  </>
+  </ThemeProvider>
 );
 
 export { main, type };

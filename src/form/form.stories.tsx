@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form, FormField } from './form';
 import { Input, Select } from '..';
+import { ThemeProvider } from 'styled-components';
+import { GreenTheme } from '../themes';
 
 export default {
   title: 'Form Component',
@@ -20,23 +22,25 @@ const data = [
 ];
 
 const main = () => (
-  <Form>
-    <FormField>
-      <Input />
-    </FormField>
-    <br />
-    <FormField error={'Hubo un error'}>
-      <Input />
-    </FormField>
-    <br />
-    <FormField error={'Hubo un error'}>
-      <Select options={data} />
-    </FormField>
-    <br />
-    <FormField error={'Hubo un error'}>
-      <Input left={<Select options={data} selected={1} />} />
-    </FormField>
-  </Form>
+  <ThemeProvider theme={GreenTheme}>
+    <Form>
+      <FormField>
+        <Input />
+      </FormField>
+      <br />
+      <FormField error={'Hubo un error'}>
+        <Input />
+      </FormField>
+      <br />
+      <FormField error={'Hubo un error'}>
+        <Select options={data} />
+      </FormField>
+      <br />
+      <FormField error={'Hubo un error'}>
+        <Input left={<Select options={data} selected={1} />} />
+      </FormField>
+    </Form>
+  </ThemeProvider>
 );
 
 export { main };

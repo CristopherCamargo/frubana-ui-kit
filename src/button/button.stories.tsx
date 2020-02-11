@@ -1,12 +1,14 @@
 import React from 'react';
 import Button from './button';
+import { ThemeProvider } from 'styled-components';
+import { GreenTheme } from '../themes';
 
 export default {
   title: 'Button component',
 };
 
 const types = () => (
-  <>
+  <ThemeProvider theme={GreenTheme}>
     <Button primary>Boton</Button>
     <br />
     <br />
@@ -18,11 +20,11 @@ const types = () => (
     <Button primary basic="very">
       Boton
     </Button>
-  </>
+  </ThemeProvider>
 );
 
 const icon = () => (
-  <>
+  <ThemeProvider theme={GreenTheme}>
     <Button icon="arrow-right" primary>
       Boton
     </Button>
@@ -36,7 +38,7 @@ const icon = () => (
     <Button icon="arrow-right" basic="very">
       Boton
     </Button>
-  </>
+  </ThemeProvider>
 );
 
 export { types, icon };

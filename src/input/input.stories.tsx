@@ -2,6 +2,8 @@ import React from 'react';
 import Input from './input';
 import { Select } from '../select';
 import { FrubanaSelectOption } from '..';
+import { GreenTheme } from '../themes';
+import { ThemeProvider } from 'styled-components';
 
 export default {
   title: 'Input component',
@@ -21,19 +23,19 @@ const data: FrubanaSelectOption[] = [
 ];
 
 const main = () => (
-  <>
+  <ThemeProvider theme={GreenTheme}>
     <Input />
     <br />
     <Input fluid />
-  </>
+  </ThemeProvider>
 );
 
 const withSelect = () => (
-  <>
+  <ThemeProvider theme={GreenTheme}>
     <Input left={<Select selected={1} options={data} />} />
     <br />
     <Input right={<Select selected={1} options={data} />} />
-  </>
+  </ThemeProvider>
 );
 
 export { main, withSelect };

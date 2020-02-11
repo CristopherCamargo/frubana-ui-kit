@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { SelectWrapper, Option, SelectLabel, SelectList } from './styles';
 import { FrubanaSelectOption, FrubanaUIKitSizes } from '..';
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '../theme';
 import { ChevronUp, ChevronDown } from 'react-feather';
 
 interface Props {
@@ -37,31 +35,25 @@ const Select = ({
   );
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <SelectWrapper onClick={handleOpen} size={size}>
-        <SelectLabel size={size} basic={basic} className="frubana-ui-select">
-          {options[selected] ? options[selected].label : ''}
-          {open ? (
-            <ChevronUp color="#9b9b9b" />
-          ) : (
-            <ChevronDown color="#9b9b9b" />
-          )}
-        </SelectLabel>
-        {open && (
-          <SelectList size={size}>
-            {options.map(option => (
-              <Option
-                key={option.key}
-                value={option.value}
-                onClick={() => handleOption(option.value)}
-              >
-                {option.label}
-              </Option>
-            ))}
-          </SelectList>
-        )}
-      </SelectWrapper>
-    </ThemeProvider>
+    <SelectWrapper onClick={handleOpen} size={size}>
+      <SelectLabel size={size} basic={basic} className="frubana-ui-select">
+        {options[selected] ? options[selected].label : ''}
+        {open ? <ChevronUp color="#9b9b9b" /> : <ChevronDown color="#9b9b9b" />}
+      </SelectLabel>
+      {open && (
+        <SelectList size={size}>
+          {options.map(option => (
+            <Option
+              key={option.key}
+              value={option.value}
+              onClick={() => handleOption(option.value)}
+            >
+              {option.label}
+            </Option>
+          ))}
+        </SelectList>
+      )}
+    </SelectWrapper>
   );
 };
 

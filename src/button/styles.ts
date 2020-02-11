@@ -27,11 +27,11 @@ const Button = styled.button`
 `;
 
 const color = (
-  theme: DefaultTheme,
+  theme?: DefaultTheme,
   primary?: boolean,
   basic?: string
 ): string => {
-  if (primary && basic) {
+  if (primary && basic && theme) {
     return theme.colors.primary;
   }
   if (primary) {
@@ -41,7 +41,7 @@ const color = (
 };
 
 const background = (
-  theme: DefaultTheme,
+  theme?: DefaultTheme,
   primary?: boolean,
   basic?: string
 ): string => {
@@ -52,7 +52,7 @@ const background = (
     };
     return res[basic];
   }
-  if (primary) {
+  if (primary && theme) {
     return theme.colors.primary;
   }
   return 'initial';
@@ -75,7 +75,11 @@ const ButtonWrapper = styled(Button)<{
     background(props.theme, props.primary, props.basic)};
   color: ${props => color(props.theme, props.primary, props.basic)};
   border-color: ${props =>
-    props.primary ? props.theme.colors.primary : props.theme.colors.default};
+    props.primary && props.theme
+      ? props.theme.colors.primary
+      : props.theme
+      ? props.theme.colors.default
+      : 'white'};
 
   ${props => (props.basic === 'basic' ? `background-color: white` : '')};
   ${props =>

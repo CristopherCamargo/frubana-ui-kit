@@ -6,10 +6,12 @@ const FormFieldWrapper = styled.div<{ error?: string }>`
   display: block;
   input,
   .frubana-ui-select {
-    ${props => props.error && `border: 1px solid ${props.theme.colors.red};`};
+    ${props =>
+      props.error &&
+      `border: 1px solid ${props.theme ? props.theme.colors.red : 'red'};`};
   }
   span {
-    color: ${props => props.theme.colors.red};
+    color: ${props => (props.theme ? props.theme.colors.red : 'red')};
     display: block;
   }
 `;

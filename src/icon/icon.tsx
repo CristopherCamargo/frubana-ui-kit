@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Edit2,
   ChevronRight,
@@ -11,8 +11,7 @@ import {
   Power,
   Trash,
 } from 'react-feather';
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '../theme';
+import { ThemeContext, DefaultTheme } from 'styled-components';
 import { FrubanaIcons, FrubanaUIKitSizes } from '..';
 
 type colors = 'green' | 'default' | 'white';
@@ -48,13 +47,16 @@ const icons: Record<FrubanaIcons, (props: Ico) => React.ReactNode> = {
 };
 
 const Icon = ({ name, color = 'default', size = 'small' }: Props) => {
+  const themeContext: DefaultTheme = useContext(ThemeContext);
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <>
       {icons[name]({
-        color: defaultTheme.colors[color] as colors,
+        color: themeContext
+          ? (themeContext.colors[color] as colors)
+          : 'default',
         size: sizes[size],
       })}
-    </ThemeProvider>
+    </>
   );
 };
 

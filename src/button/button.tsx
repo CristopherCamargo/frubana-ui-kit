@@ -1,8 +1,6 @@
 import React from 'react';
 import { ButtonWrapper } from './styles';
 import { FrubanaBasicTypes, FrubanaIcons } from '..';
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '../theme';
 import { Icon } from '../icon';
 
 type placements = 'left' | 'right';
@@ -26,22 +24,20 @@ const Button = ({
   fluid,
   placement = 'right',
 }: Props) => (
-  <ThemeProvider theme={defaultTheme}>
-    <ButtonWrapper
-      primary={primary}
-      basic={basic}
-      onClick={onClick}
-      fluid={fluid}
-    >
-      {icon && placement === 'left' && (
-        <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
-      )}
-      <span>{children}</span>{' '}
-      {icon && placement === 'right' && (
-        <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
-      )}
-    </ButtonWrapper>
-  </ThemeProvider>
+  <ButtonWrapper
+    primary={primary}
+    basic={basic}
+    onClick={onClick}
+    fluid={fluid}
+  >
+    {icon && placement === 'left' && (
+      <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
+    )}
+    <span>{children}</span>{' '}
+    {icon && placement === 'right' && (
+      <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
+    )}
+  </ButtonWrapper>
 );
 
 export default Button;

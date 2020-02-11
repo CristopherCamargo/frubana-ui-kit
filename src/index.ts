@@ -5,6 +5,8 @@ import { Icon } from './icon';
 import { Card } from './card';
 import { Form, FormField } from './form';
 import { Select } from './select';
+import { GreenTheme } from './themes';
+import { ThemeProvider } from 'styled-components';
 
 type FrubanaUIKitSizes = 'large' | 'medium' | 'small';
 type FrubanaBasicTypes = 'basic' | 'very';
@@ -39,4 +41,6 @@ export {
   Form,
   FormField,
   Select,
+  GreenTheme,
+  ThemeProvider,
 };
