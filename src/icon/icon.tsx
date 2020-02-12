@@ -10,11 +10,13 @@ import {
   PlusCircle,
   Power,
   Trash,
+  AlertTriangle,
+  Check,
 } from 'react-feather';
 import { ThemeContext, DefaultTheme } from 'styled-components';
 import { FrubanaIcons, FrubanaUIKitSizes } from '..';
 
-type colors = 'green' | 'default' | 'white';
+type colors = 'green' | 'default' | 'white' | 'orange';
 
 const sizes: Record<FrubanaUIKitSizes, number> = {
   small: 15,
@@ -44,6 +46,8 @@ const icons: Record<FrubanaIcons, (props: Ico) => React.ReactNode> = {
   'plus-circle': props => <PlusCircle {...props} />,
   power: props => <Power {...props} />,
   trash: props => <Trash {...props} />,
+  'alert-triangle': props => <AlertTriangle {...props} />,
+  check: props => <Check {...props} />,
 };
 
 const Icon = ({ name, color = 'default', size = 'small' }: Props) => {

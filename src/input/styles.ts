@@ -53,8 +53,14 @@ const InputGroupWrapper = styled.div<{
   }
 `;
 
+const InputIconRight = styled.div`
+  position: relative;
+  top: 16px;
+  right: 25px;
+`;
+
 const InputWrapper = styled.input`
-  padding: 8px;
+  padding: 8px 25px 8px 8px;
   border: none;
   height: 30px;
   font-size: 1em;
@@ -66,4 +72,4 @@ const InputWrapper = styled.input`
   }
 `;
 
-export { InputWrapper, InputGroupWrapper };
+export { InputWrapper, InputGroupWrapper, InputIconRight };

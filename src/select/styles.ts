@@ -7,18 +7,22 @@ const size: Record<FrubanaUIKitSizes, string> = {
   small: '120px',
 };
 
-const SelectWrapper = styled.div<{ size: string }>`
+const SelectWrapper = styled.div<{ size: string; fluid?: boolean }>`
   cursor: pointer;
   position: relative;
-  width: auto;
+  width: ${props => (props.fluid ? '100%' : 'auto')};
   display: inline-block;
   background-color: #fff;
   font-size: 1em;
 `;
 
-const SelectLabel = styled.div<{ size: string; basic?: boolean }>`
-  padding: 8px;
+const SelectLabel = styled.div<{
+  size: string;
+  basic?: boolean;
+  fluid?: boolean;
+}>`
   height: 30px;
+  padding: 8px;
   ${props =>
     !props.basic &&
     `box-shadow: ${props.theme ? props.theme.boxShadow : 'none'}`};
@@ -29,7 +33,8 @@ const SelectLabel = styled.div<{ size: string; basic?: boolean }>`
   svg {
     float: right;
   }
-  width: ${props => size[props.size]};
+  width: ${props =>
+    props.fluid ? '-webkit-fill-available' : size[props.size]};
 `;
 
 const SelectList = styled.ul<{ size: string }>`

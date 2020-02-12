@@ -11,6 +11,7 @@ const GreenTheme: DefaultTheme = {
     white: '#fff',
     green: '#8fb812',
     secondary: 'magenta',
+    orange: '#f08247',
     red: '#fd5153',
   },
 };

@@ -4,6 +4,7 @@ import { Select } from '../select';
 import { FrubanaSelectOption } from '..';
 import { GreenTheme } from '../themes';
 import { ThemeProvider } from 'styled-components';
+import { Icon } from '../icon';
 
 export default {
   title: 'Input component',
@@ -24,7 +25,7 @@ const data: FrubanaSelectOption[] = [
 
 const main = () => (
   <ThemeProvider theme={GreenTheme}>
-    <Input />
+    <Input placeholder="hola" />
     <br />
     <Input fluid />
   </ThemeProvider>
@@ -38,4 +39,10 @@ const withSelect = () => (
   </ThemeProvider>
 );
 
-export { main, withSelect };
+const withIcons = () => (
+  <ThemeProvider theme={GreenTheme}>
+    <Input iconRight={<Icon name="alert-triangle" color="orange" />} />
+  </ThemeProvider>
+);
+
+export { main, withSelect, withIcons };

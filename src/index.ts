@@ -20,7 +20,9 @@ type FrubanaIcons =
   | 'arrow-left'
   | 'plus-circle'
   | 'power'
-  | 'trash';
+  | 'trash'
+  | 'alert-triangle'
+  | 'check';
 
 interface FrubanaSelectOption {
   key: string | number;

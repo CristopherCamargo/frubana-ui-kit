@@ -1,18 +1,37 @@
 import React from 'react';
-import { InputWrapper, InputGroupWrapper } from './styles';
+import { InputWrapper, InputGroupWrapper, InputIconRight } from './styles';
 
 interface Props {
   value?: string | number;
   type?: string;
   left?: React.ReactNode;
   right?: React.ReactNode;
+  iconRight?: React.ReactNode;
+  iconLeft?: React.ReactNode;
   fluid?: boolean;
+  placeholder?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
 }
 
-const Input = ({ value = '', type = 'text', left, right, fluid }: Props) => (
+const Input = ({
+  value = '',
+  type = 'text',
+  left,
+  right,
+  iconRight,
+  fluid,
+  placeholder,
+  onChange,
+}: Props) => (
   <InputGroupWrapper left={left} right={right} fluid={fluid}>
     {left}
-    <InputWrapper type={type} {...(value && { value })} />
+    <InputWrapper
+      type={type}
+      {...(value && { value })}
+      onChange={onChange}
+      placeholder={placeholder}
+    />
+    {iconRight && <InputIconRight>{iconRight}</InputIconRight>}
     {right}
   </InputGroupWrapper>
 );

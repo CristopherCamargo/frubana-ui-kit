@@ -5,6 +5,7 @@ import { ChevronUp, ChevronDown } from 'react-feather';
 
 interface Props {
   selected?: string | number;
+  fluid?: boolean;
   options: FrubanaSelectOption[];
   onSelect?: (value: string | number) => void;
   size?: FrubanaUIKitSizes;
@@ -17,6 +18,7 @@ const Select = ({
   size = 'medium',
   onSelect,
   basic,
+  fluid,
 }: Props) => {
   const [open, setOpen] = useState(false);
 
@@ -35,8 +37,13 @@ const Select = ({
   );
 
   return (
-    <SelectWrapper onClick={handleOpen} size={size}>
-      <SelectLabel size={size} basic={basic} className="frubana-ui-select">
+    <SelectWrapper onClick={handleOpen} size={size} fluid={fluid}>
+      <SelectLabel
+        size={size}
+        basic={basic}
+        className="frubana-ui-select"
+        fluid={fluid}
+      >
         {options[selected] ? options[selected].label : ''}
         {open ? <ChevronUp color="#9b9b9b" /> : <ChevronDown color="#9b9b9b" />}
       </SelectLabel>

@@ -31,11 +31,11 @@ const Button = ({
     fluid={fluid}
   >
     {icon && placement === 'left' && (
-      <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
+      <Icon name={icon} {...(primary && { color: 'white' })} />
     )}
     <span>{children}</span>{' '}
     {icon && placement === 'right' && (
-      <Icon name={icon} size="small" {...(primary && { color: 'white' })} />
+      <Icon name={icon} {...(primary && { color: 'white' })} />
     )}
   </ButtonWrapper>
 );

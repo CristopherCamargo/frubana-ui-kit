@@ -2,7 +2,6 @@ import styled, { DefaultTheme } from 'styled-components';
 
 const Button = styled.button`
   padding: 8px;
-  border: none;
   border-radius: 6px;
   height: 40px;
   font-size: 1em;
@@ -23,6 +22,9 @@ const Button = styled.button`
   span + svg,
   svg + span {
     margin-left: 4px;
+  }
+  span > * {
+    vertical-align: middle;
   }
 `;
 
@@ -62,7 +64,7 @@ const size = (fluid?: boolean) => {
   if (fluid) {
     return '100%';
   }
-  return '80px';
+  return '140px';
 };
 
 const ButtonWrapper = styled(Button)<{
