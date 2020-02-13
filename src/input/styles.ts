@@ -57,6 +57,7 @@ const InputIconRight = styled.div`
   position: relative;
   top: 16px;
   right: 25px;
+  width: 0px;
 `;
 
 const InputWrapper = styled.input`

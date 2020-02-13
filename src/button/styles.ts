@@ -11,10 +11,10 @@ const Button = styled.button`
   outline: none;
   appearance: none;
   cursor: pointer;
-  :focus {
+  &:focus {
     outline: none;
   }
-  :hover {
+  &:hover {
     opacity: 0.7;
   }
 
@@ -57,10 +57,13 @@ const background = (
   if (primary && theme) {
     return theme.colors.primary;
   }
-  return 'initial';
+  return 'white';
 };
 
-const size = (fluid?: boolean) => {
+const size = (fluid?: boolean, circular?: boolean) => {
+  if (circular) {
+    return '40px';
+  }
   if (fluid) {
     return '100%';
   }
@@ -71,17 +74,16 @@ const ButtonWrapper = styled(Button)<{
   primary?: boolean;
   basic?: string;
   fluid?: boolean;
+  circular?: boolean;
 }>`
-  width: ${props => size(props.fluid)};
+  width: ${props => size(props.fluid, props.circular)};
   background-color: ${props =>
     background(props.theme, props.primary, props.basic)};
   color: ${props => color(props.theme, props.primary, props.basic)};
   border-color: ${props =>
-    props.primary && props.theme
-      ? props.theme.colors.primary
-      : props.theme
-      ? props.theme.colors.default
-      : 'white'};
+    props.primary && props.theme ? props.theme.colors.primary : 'white'};
+
+  ${props => props.circular && 'border-radius: 50%'};
 
   ${props => (props.basic === 'basic' ? `background-color: white` : '')};
   ${props =>

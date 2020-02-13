@@ -6,13 +6,14 @@ import { Icon } from '../icon';
 type placements = 'left' | 'right';
 
 interface Props {
-  children?: React.ReactNode;
+  children?: React.ReactNode | JSX.Element;
   primary?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   basic?: FrubanaBasicTypes;
   icon?: FrubanaIcons;
   placement?: placements;
   fluid?: boolean;
+  circular?: boolean;
 }
 
 const Button = ({
@@ -23,12 +24,14 @@ const Button = ({
   onClick,
   fluid,
   placement = 'right',
+  circular,
 }: Props) => (
   <ButtonWrapper
     primary={primary}
     basic={basic}
     onClick={onClick}
     fluid={fluid}
+    circular={circular}
   >
     {icon && placement === 'left' && (
       <Icon name={icon} {...(primary && { color: 'white' })} />

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { FrubanaUIKitSizes } from '..';
 
 const size: Record<FrubanaUIKitSizes, string> = {
+  mini: '120px',
   large: '280px',
   medium: '220px',
   small: '120px',

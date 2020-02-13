@@ -2,6 +2,7 @@ import React from 'react';
 import Button from './button';
 import { ThemeProvider } from 'styled-components';
 import { GreenTheme } from '../themes';
+import { Icon } from '../icon';
 
 export default {
   title: 'Button component',
@@ -37,6 +38,11 @@ const icon = () => (
     <br />
     <Button icon="arrow-right" basic="very">
       Boton
+    </Button>
+    <br />
+    <br />
+    <Button circular>
+      <Icon name="plus" />
     </Button>
   </ThemeProvider>
 );

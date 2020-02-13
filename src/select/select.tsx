@@ -36,6 +36,16 @@ const Select = ({
     [open]
   );
 
+  let label = '';
+  if (selected) {
+    const founded = options.find(
+      object => object.key === selected || object.value === selected
+    );
+    if (founded) {
+      label = founded.label;
+    }
+  }
+
   return (
     <SelectWrapper onClick={handleOpen} size={size} fluid={fluid}>
       <SelectLabel
@@ -44,7 +54,7 @@ const Select = ({
         className="frubana-ui-select"
         fluid={fluid}
       >
-        {options[selected] ? options[selected].label : ''}
+        {label}
         {open ? <ChevronUp color="#9b9b9b" /> : <ChevronDown color="#9b9b9b" />}
       </SelectLabel>
       {open && (

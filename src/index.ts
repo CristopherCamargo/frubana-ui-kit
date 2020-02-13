@@ -5,10 +5,11 @@ import { Icon } from './icon';
 import { Card } from './card';
 import { Form, FormField } from './form';
 import { Select } from './select';
+import { ButtonGroup } from './button-group';
 import { GreenTheme } from './themes';
 import { ThemeProvider } from 'styled-components';
 
-type FrubanaUIKitSizes = 'large' | 'medium' | 'small';
+type FrubanaUIKitSizes = 'large' | 'medium' | 'small' | 'mini';
 type FrubanaBasicTypes = 'basic' | 'very';
 type FrubanaIcons =
   | 'edit'
@@ -22,7 +23,9 @@ type FrubanaIcons =
   | 'power'
   | 'trash'
   | 'alert-triangle'
-  | 'check';
+  | 'check'
+  | 'plus'
+  | 'frown';
 
 interface FrubanaSelectOption {
   key: string | number;
@@ -45,4 +48,5 @@ export {
   Select,
   GreenTheme,
   ThemeProvider,
+  ButtonGroup,
 };

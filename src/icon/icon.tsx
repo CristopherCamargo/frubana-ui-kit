@@ -12,6 +12,8 @@ import {
   Trash,
   AlertTriangle,
   Check,
+  Plus,
+  Frown,
 } from 'react-feather';
 import { ThemeContext, DefaultTheme } from 'styled-components';
 import { FrubanaIcons, FrubanaUIKitSizes } from '..';
@@ -19,6 +21,7 @@ import { FrubanaIcons, FrubanaUIKitSizes } from '..';
 type colors = 'green' | 'default' | 'white' | 'orange';
 
 const sizes: Record<FrubanaUIKitSizes, number> = {
+  mini: 7,
   small: 15,
   medium: 25,
   large: 50,
@@ -48,6 +51,8 @@ const icons: Record<FrubanaIcons, (props: Ico) => React.ReactNode> = {
   trash: props => <Trash {...props} />,
   'alert-triangle': props => <AlertTriangle {...props} />,
   check: props => <Check {...props} />,
+  plus: props => <Plus {...props} />,
+  frown: props => <Frown {...props} />,
 };
 
 const Icon = ({ name, color = 'default', size = 'small' }: Props) => {

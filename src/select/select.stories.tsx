@@ -9,35 +9,45 @@ export default {
 
 const data = [
   {
-    key: 1,
-    value: 1,
-    label: 'Primer dato',
+    key: '+1',
+    value: '+1',
+    label: '+1',
   },
   {
-    key: 2,
-    value: 2,
-    label: 'Segundo dato',
+    key: '+57',
+    value: '+57',
+    label: '+57',
+  },
+  {
+    key: '+52',
+    value: '+52',
+    label: '+52',
+  },
+  {
+    key: '+55',
+    value: '+55',
+    label: '+55',
   },
 ];
 
 const main = () => (
   <ThemeProvider theme={GreenTheme}>
-    <Select selected={1} options={data} size="small" />
+    <Select selected="+1" options={data} size="small" />
     <br />
     <br />
-    <Select selected={1} options={data} size="medium" />
+    <Select selected="+1" options={data} size="medium" />
     <br />
     <br />
-    <Select selected={1} options={data} size="large" />
+    <Select selected="+1" options={data} size="large" />
   </ThemeProvider>
 );
 
 const type = () => (
   <ThemeProvider theme={GreenTheme}>
-    <Select selected={1} options={data} />
+    <Select selected="+1" options={data} />
     <br />
     <br />
-    <Select selected={1} options={data} basic />
+    <Select selected="+1" options={data} basic />
   </ThemeProvider>
 );
 
