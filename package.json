@@ -8,14 +8,16 @@
   "files": [
     "build"
   ],
+  "git": "git@github.com:CristopherCamargo/frubana-ui-kit.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
     "storybook": "start-storybook",
     "build-storybook": "build-storybook"
   },
+  "private": false,
   "keywords": [],
-  "author": "Frubana",
+  "author": "@frubana",
   "license": "ISC",
   "peerDependencies": {
     "react": "^16.x",
