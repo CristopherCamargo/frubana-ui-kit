@@ -18,7 +18,7 @@
   "private": false,
   "keywords": [],
   "author": "@frubana",
-  "license": "ISC",
+  "license": "",
   "peerDependencies": {
     "react": "^16.x",
     "react-dom": "^16.x",
