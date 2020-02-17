@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { SelectWrapper, Option, SelectLabel, SelectList } from './styles';
 import { FrubanaSelectOption, FrubanaUIKitSizes } from '..';
 import { ChevronUp, ChevronDown } from 'react-feather';
@@ -12,6 +12,26 @@ interface Props {
   basic?: boolean;
 }
 
+const useOutside = (refLabel: any, refList: any, handleClose: Function) => {
+  const handleClickOutside = (event: any) => {
+    if (
+      refLabel.current &&
+      refList.current &&
+      !refLabel.current.contains(event.target) &&
+      !refList.current.contains(event.target)
+    ) {
+      handleClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  });
+};
+
 const Select = ({
   options,
   selected = '',
@@ -22,9 +42,18 @@ const Select = ({
 }: Props) => {
   const [open, setOpen] = useState(false);
 
+  const refLabel: any = useRef(null);
+  const refList: any = useRef(null);
+
   const handleOpen = useCallback(() => {
     setOpen(!open);
   }, [open]);
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, []);
+
+  useOutside(refLabel, refList, handleClose);
 
   const handleOption = useCallback(
     value => {
@@ -53,12 +82,13 @@ const Select = ({
         basic={basic}
         className="frubana-ui-select"
         fluid={fluid}
+        ref={refLabel}
       >
         {label}
         {open ? <ChevronUp color="#9b9b9b" /> : <ChevronDown color="#9b9b9b" />}
       </SelectLabel>
       {open && (
-        <SelectList size={size}>
+        <SelectList size={size} ref={refList}>
           {options.map(option => (
             <Option
               key={option.key}

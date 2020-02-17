@@ -15,6 +15,7 @@ const FormFieldWrapper = styled.div<{ error?: string }>`
     color: ${props => (props.theme ? props.theme.colors.red : 'red')};
     display: block;
     font-size: 0.9em;
+    text-align: left;
   }
 `;
 

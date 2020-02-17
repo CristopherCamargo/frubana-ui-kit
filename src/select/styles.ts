@@ -23,6 +23,7 @@ const SelectLabel = styled.div<{
   fluid?: boolean;
 }>`
   height: 30px;
+  text-align: left;
   padding: 8px;
   ${props =>
     !props.basic &&
@@ -49,6 +50,8 @@ const SelectList = styled.ul<{ size: string }>`
   box-shadow: 0 2px 4px 0 rgba(155, 155, 155, 0.25);
   border-radius: ${props => (props.theme ? props.theme.borderRadius : 'none')};
   width: 100%;
+  overflow: scroll;
+  max-height: 150px;
   :focus {
     outline: none;
   }
@@ -58,6 +61,7 @@ const Option = styled.li`
   padding: 8px;
   width: 100%;
   height: 30px;
+  text-align: left;
   background-color: #fff;
   :hover {
     background-color: rgba(155, 155, 155, 0.15);
