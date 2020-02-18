@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Select from './select';
 import { GreenTheme } from '../themes';
 import { ThemeProvider } from 'styled-components';
@@ -51,10 +51,18 @@ const type = () => (
   </ThemeProvider>
 );
 
-const search = () => (
-  <ThemeProvider theme={GreenTheme}>
-    <Select search selected="+1" options={data} />
-  </ThemeProvider>
-);
+const search = () => {
+  const [selected, setSelected] = useState('+1');
+  return (
+    <ThemeProvider theme={GreenTheme}>
+      <Select
+        search
+        selected={selected}
+        options={data}
+        onSelect={(value: string) => setSelected(value)}
+      />
+    </ThemeProvider>
+  );
+};
 
 export { main, type, search };

@@ -86,6 +86,8 @@ const Select = ({
 
   const handleOpen = useCallback(() => {
     setOpen(true);
+    setWrite(true);
+    setText('');
   }, []);
 
   useEffect(() => {
@@ -126,23 +128,13 @@ const Select = ({
   );
 
   return (
-    <SelectWrapper
-      ref={refLabel}
-      onClick={handleOpen}
-      size={size}
-      fluid={fluid}
-    >
+    <SelectWrapper ref={refLabel} size={size} fluid={fluid}>
       {search ? (
         <Input
           fluid={fluid}
           {...(selected && !write ? { value: label } : { value: text })}
           iconRight={chevron}
-          onFocus={() => {
-            setOpen(true);
-            setWrite(true);
-            setText('');
-          }}
-          onBlur={() => setOpen(false)}
+          onFocus={handleOpen}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setText(e.target.value)
           }
@@ -151,6 +143,7 @@ const Select = ({
         <SelectLabel
           size={size}
           basic={basic}
+          onClick={handleOpen}
           className="frubana-ui-select"
           fluid={fluid}
         >
