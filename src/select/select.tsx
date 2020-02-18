@@ -85,8 +85,8 @@ const Select = ({
   const refList = useRef(null);
 
   const handleOpen = useCallback(() => {
-    setOpen(!open);
-  }, [open]);
+    setOpen(true);
+  }, []);
 
   useEffect(() => {
     const filter = options.filter(currentOption => {
@@ -101,16 +101,13 @@ const Select = ({
 
   useOutside(refLabel, refList, handleClose);
 
-  const handleOption = useCallback(
-    value => {
-      setOpen(false);
-      setWrite(false);
-      if (onSelect) {
-        onSelect(value);
-      }
-    },
-    [open]
-  );
+  const handleOption = useCallback(value => {
+    setOpen(false);
+    setWrite(false);
+    if (onSelect) {
+      onSelect(value);
+    }
+  }, []);
 
   let label = '';
   if (selected) {
@@ -145,6 +142,7 @@ const Select = ({
             setWrite(true);
             setText('');
           }}
+          onBlur={() => setOpen(false)}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setText(e.target.value)
           }
