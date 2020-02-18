@@ -78,7 +78,8 @@ const Select = ({
 }: Props) => {
   const [open, setOpen] = useState(false);
   const [currentOptions, setCurrentOptions] = useState(options);
-  const [text, setText] = useState('');
+  const [text, setText] = useState<string>('');
+  const [write, setWrite] = useState(false);
 
   const refLabel = useRef(null);
   const refList = useRef(null);
@@ -103,6 +104,7 @@ const Select = ({
   const handleOption = useCallback(
     value => {
       setOpen(false);
+      setWrite(false);
       if (onSelect) {
         onSelect(value);
       }
@@ -136,7 +138,13 @@ const Select = ({
       {search ? (
         <Input
           fluid={fluid}
+          {...(selected && !write ? { value: label } : { value: text })}
           iconRight={chevron}
+          onFocus={() => {
+            setOpen(true);
+            setWrite(true);
+            setText('');
+          }}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setText(e.target.value)
           }
