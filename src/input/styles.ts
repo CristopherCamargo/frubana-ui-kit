@@ -67,7 +67,7 @@ const InputWrapper = styled.input`
   font-size: 1em;
   width: 100%;
   box-shadow: ${props => (props.theme ? props.theme.boxShadow : 'none')};
-  background-color: #ffffff;
+  background-color: #fff;
   :focus {
     outline: none;
   }

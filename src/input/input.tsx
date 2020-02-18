@@ -12,6 +12,7 @@ interface Props {
   placeholder?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
   onBlur?: () => void;
+  onFocus?: () => void;
 }
 
 const Input = ({
@@ -24,6 +25,7 @@ const Input = ({
   placeholder,
   onChange,
   onBlur,
+  onFocus,
 }: Props) => (
   <InputGroupWrapper left={left} right={right} fluid={fluid}>
     {left}
@@ -33,6 +35,7 @@ const Input = ({
       onChange={onChange}
       placeholder={placeholder}
       onBlur={onBlur}
+      onFocus={onFocus}
     />
     {iconRight && <InputIconRight>{iconRight}</InputIconRight>}
     {right}

@@ -13,7 +13,6 @@ const SelectWrapper = styled.div<{ size: string; fluid?: boolean }>`
   position: relative;
   width: ${props => (props.fluid ? '100%' : 'auto')};
   display: inline-block;
-  background-color: #fff;
   font-size: 1em;
 `;
 
