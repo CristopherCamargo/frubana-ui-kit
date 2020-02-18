@@ -51,4 +51,10 @@ const type = () => (
   </ThemeProvider>
 );
 
-export { main, type };
+const search = () => (
+  <ThemeProvider theme={GreenTheme}>
+    <Select search selected="+1" options={data} />
+  </ThemeProvider>
+);
+
+export { main, type, search };

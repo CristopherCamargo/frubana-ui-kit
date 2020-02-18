@@ -2,6 +2,7 @@ import React from 'react';
 import { InputWrapper, InputGroupWrapper, InputIconRight } from './styles';
 
 interface Props {
+  ref?: any;
   value?: string | number;
   type?: string;
   left?: React.ReactNode;
@@ -10,12 +11,13 @@ interface Props {
   iconLeft?: React.ReactNode;
   fluid?: boolean;
   placeholder?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: () => void;
   onFocus?: () => void;
 }
 
 const Input = ({
+  ref,
   value = '',
   type = 'text',
   left,
@@ -27,7 +29,7 @@ const Input = ({
   onBlur,
   onFocus,
 }: Props) => (
-  <InputGroupWrapper left={left} right={right} fluid={fluid}>
+  <InputGroupWrapper ref={ref} left={left} right={right} fluid={fluid}>
     {left}
     <InputWrapper
       type={type}
