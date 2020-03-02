@@ -91,6 +91,9 @@ const ButtonWrapper = styled(Button)<{
     props.basic === 'very'
       ? `border-color: transparent;`
       : `box-shadow: ${props.theme.boxShadow};`}
+  button {
+    border: 0;
+  }
 `;
 
 export { ButtonWrapper };

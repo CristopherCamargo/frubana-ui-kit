@@ -26,7 +26,7 @@ export default {
   external: ['styled-components', 'react', 'react-dom'],
   plugins: [
     babel({
-      exclude: 'node_modules/**',
+      exclude: ['node_modules/**', '**/*.stories.js'],
     }),
     external(),
     svg(),
