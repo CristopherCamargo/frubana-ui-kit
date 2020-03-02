@@ -9,6 +9,7 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   outline: none;
+  border: 0;
   appearance: none;
   cursor: pointer;
   &:focus {
