@@ -44,7 +44,7 @@ const InputGroupWrapper = styled.div<{
 }>`
   display: flex;
   width: ${props => width(props.left, props.right, props.fluid)};
-  .frubana-ui-select {
+  .ui-select {
     width: max-content;
     border-radius: ${props => divBorder(props.left, props.right)};
   }

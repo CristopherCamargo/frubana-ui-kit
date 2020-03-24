@@ -5,10 +5,9 @@ import { Icon } from '../icon';
 
 type placements = 'left' | 'right';
 
-interface Props {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode | JSX.Element;
   primary?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   basic?: FrubanaBasicTypes;
   icon?: FrubanaIcons;
   placement?: placements;
@@ -32,6 +31,7 @@ const Button = ({
     onClick={onClick}
     fluid={fluid}
     circular={circular}
+    className="frubana ui-button"
   >
     {icon && placement === 'left' && (
       <Icon name={icon} {...(primary && { color: 'white' })} />

@@ -5,6 +5,8 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const Card = ({ children }: Props) => <CardWrapper>{children}</CardWrapper>;
+const Card = ({ children }: Props) => (
+  <CardWrapper className="frubana ui-card">{children}</CardWrapper>
+);
 
 export default Card;

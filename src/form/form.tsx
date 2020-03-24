@@ -5,7 +5,9 @@ interface FormProps {
   children?: React.ReactNode;
 }
 
-const Form = ({ children }: FormProps) => <FormWrapper>{children}</FormWrapper>;
+const Form = ({ children }: FormProps) => (
+  <FormWrapper className="frubana ui-form">{children}</FormWrapper>
+);
 
 interface FormFieldProps {
   children?: React.ReactNode;
@@ -13,7 +15,7 @@ interface FormFieldProps {
 }
 
 const FormField = ({ children, error }: FormFieldProps) => (
-  <FormFieldWrapper error={error}>
+  <FormFieldWrapper error={error} className="frubana ui-form-field">
     {children}
     {error && <span>*{error}</span>}
   </FormFieldWrapper>

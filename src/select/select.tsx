@@ -128,7 +128,12 @@ const Select = ({
   );
 
   return (
-    <SelectWrapper ref={refLabel} size={size} fluid={fluid}>
+    <SelectWrapper
+      ref={refLabel}
+      size={size}
+      fluid={fluid}
+      className="frubana ui-select-wrapper"
+    >
       {search ? (
         <Input
           fluid={fluid}
@@ -144,7 +149,7 @@ const Select = ({
           size={size}
           basic={basic}
           onClick={handleOpen}
-          className="frubana-ui-select"
+          className="frubana ui-select"
           fluid={fluid}
         >
           {label}
@@ -152,12 +157,17 @@ const Select = ({
         </SelectLabel>
       )}
       {open && (
-        <SelectList size={size} ref={refList}>
+        <SelectList
+          size={size}
+          ref={refList}
+          className="frubana ui-select-list"
+        >
           {currentOptions.map(option => (
             <Option
               key={option.key}
               value={option.value}
               onClick={() => handleOption(option.value)}
+              className="frubana ui-select-option"
             >
               {option.label}
             </Option>

@@ -1,19 +1,13 @@
 import React from 'react';
 import { InputWrapper, InputGroupWrapper, InputIconRight } from './styles';
 
-interface Props {
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   ref?: any;
-  value?: string | number;
-  type?: string;
   left?: React.ReactNode;
   right?: React.ReactNode;
   iconRight?: React.ReactNode;
   iconLeft?: React.ReactNode;
   fluid?: boolean;
-  placeholder?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: () => void;
-  onFocus?: () => void;
 }
 
 const Input = ({
@@ -29,7 +23,13 @@ const Input = ({
   onBlur,
   onFocus,
 }: Props) => (
-  <InputGroupWrapper ref={ref} left={left} right={right} fluid={fluid}>
+  <InputGroupWrapper
+    ref={ref}
+    left={left}
+    right={right}
+    fluid={fluid}
+    className="frubana ui-input-wrapper"
+  >
     {left}
     <InputWrapper
       type={type}
@@ -38,6 +38,7 @@ const Input = ({
       placeholder={placeholder}
       onBlur={onBlur}
       onFocus={onFocus}
+      className="frubana ui-input"
     />
     {iconRight && <InputIconRight>{iconRight}</InputIconRight>}
     {right}

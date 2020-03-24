@@ -30,6 +30,7 @@ const sizes: Record<FrubanaUIKitSizes, number> = {
 interface Ico {
   color?: colors;
   size?: number;
+  className: string;
 }
 
 interface Props {
@@ -64,6 +65,7 @@ const Icon = ({ name, color = 'default', size = 'small' }: Props) => {
           ? (themeContext.colors[color] as colors)
           : 'default',
         size: sizes[size],
+        className: 'frubana ui-icon',
       })}
     </>
   );

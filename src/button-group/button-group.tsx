@@ -6,7 +6,9 @@ interface Props {
 }
 
 const ButtonGroup = ({ children }: Props) => (
-  <ButtonGroupWrapper>{children}</ButtonGroupWrapper>
+  <ButtonGroupWrapper className="frubana ui-button-group">
+    {children}
+  </ButtonGroupWrapper>
 );
 
 export default ButtonGroup;
