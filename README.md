@@ -1,1 +1,3 @@
-# Frubana React UI kit
+## Install
+
+`yarn add @frubana/ui-kit`

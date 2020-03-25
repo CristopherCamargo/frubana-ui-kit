@@ -1,5 +1,12 @@
 import styled, { DefaultTheme } from 'styled-components';
 
+interface Props {
+  primary?: boolean;
+  basic?: string;
+  fluid?: boolean;
+  circular?: boolean;
+}
+
 const Button = styled.button`
   padding: 8px;
   border-radius: 6px;
@@ -71,26 +78,28 @@ const size = (fluid?: boolean, circular?: boolean) => {
   return '140px';
 };
 
-const ButtonWrapper = styled(Button)<{
-  primary?: boolean;
-  basic?: string;
-  fluid?: boolean;
-  circular?: boolean;
-}>`
+const border = (theme?: DefaultTheme, basic?: string, primary?: boolean) => {
+  if (basic === 'basic' && primary) {
+    return `border-color: ${
+      theme ? theme.colors.primary : 'initial'
+    }; border: 1px solid;`;
+  }
+  if (basic === 'very') {
+    return 'border-color: transparent;';
+  }
+  return `box-shadow: ${theme ? theme.boxShadow : 'none'};`;
+};
+
+const ButtonWrapper = styled(Button)<Props>`
   width: ${props => size(props.fluid, props.circular)};
   background-color: ${props =>
     background(props.theme, props.primary, props.basic)};
   color: ${props => color(props.theme, props.primary, props.basic)};
-  border-color: ${props =>
-    props.primary && props.theme ? props.theme.colors.primary : 'white'};
 
   ${props => props.circular && 'border-radius: 50%'};
 
   ${props => (props.basic === 'basic' ? `background-color: white` : '')};
-  ${props =>
-    props.basic === 'very'
-      ? `border-color: transparent;`
-      : `box-shadow: ${props.theme.boxShadow};`}
+  ${props => border(props.theme, props.basic, props.primary)}
   button {
     border: 0;
   }
